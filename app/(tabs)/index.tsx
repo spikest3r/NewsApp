@@ -4,6 +4,7 @@ import Empty from '@/components/empty';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import ArticleModal from '@/components/ui/article-modal';
+import { API_KEY } from '@env';
 import { useEffect, useState } from 'react';
 import { RefreshControl, ScrollView, StyleSheet, useColorScheme, View } from 'react-native';
 
@@ -20,7 +21,7 @@ export default function HomeScreen() {
   useEffect(() => {
     const fetchTopStories = async () => {
         console.log("fetching");
-        const api_url = "https://newsdata.io/api/1/latest?apikey=pub_b4f28f96762b4beaaeb1f5f1e97bda39&language=en";
+        const api_url = "https://newsdata.io/api/1/latest?apikey="+API_KEY+"&language=en";
         const result = await fetch(api_url);
         const data = await result.json();
         console.log(data);
